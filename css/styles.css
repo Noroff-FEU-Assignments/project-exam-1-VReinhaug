@@ -1,0 +1,81 @@
+/* General page style */
+
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav a{
+    display: inline-flex;
+    margin: 10px 30px;
+    text-align: center;
+    font-family: "Libre franklin", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.current{
+    background-color: #EBB749;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+body{
+    min-height: 100vh;
+    background-color: #F3E9D0;
+    font-family: "Mukta vaani", Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    color: #2F2A24;
+}
+
+H1, H2{
+    font-family: "Caveat", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #803436;
+}
+
+H1{
+    font-size: 3em;
+    text-align: center;
+}
+
+p{
+    margin: 1em 2em;
+}
+
+footer{
+    background-color: #EBB749;
+    text-align: center;
+}
+
+/* Links and buttons */
+
+a{
+    text-decoration: none;
+    color: #2F2A24;
+}
+
+.button{
+    background-color: #65BFAF;
+    font-family: "Libre franklin", Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    border-radius: 50px;
+    max-width: 100%;
+    font-size: 1.2em;
+    margin: 10px;
+}
+
+.contact-button{
+    text-align: center;
+    margin: 2em;
+}
+
+/* Banner image */
+
+.banner {
+    background-image: url(../images/cambodia_koh-rong_handstand_730x390.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 90%;
+    height: 40vh;
+}
