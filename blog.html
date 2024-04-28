@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Mukta+Vaani:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script defer src="js/components/error.js"></script>
+    <script defer src="js/blog.js"></script>
 </head>
 <body>
     <header>
@@ -24,7 +26,11 @@
     <main>
         <h1>Blog posts</h1>
         <section class="categories"></section>
-        <section class="blog-posts"></section>
+        <section class="blog-posts-container">
+        </section>
+        <div class="cta-button">
+            <a class="button" id="loadMoreButton">View more posts..</a>
+        </div>
     </main> 
     <footer>
         <p>© Veronika Reinhaug</p>
