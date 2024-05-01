@@ -16,15 +16,14 @@ async function getPosts() {
             return;
         }
         
-
         for (let i = 0; i < results.length; i++) {
             console.log(results);
 
             const blogPost = document.createElement("section");
             blogPost.classList.add("blog-post");
-            blogPost.innerHTML =    `<div class="featured-image">
-                                        <img src="${results[i]._embedded["wp:featuredmedia"][0].source_url}"/>
-                                    </div>
+            blogPost.innerHTML =    `<a href="blog/post.html?post=${results[i].slug}" class="featured-image">
+                                        <img src="${results[i]._embedded["wp:featuredmedia"][0].source_url}" alt="${results[i]._embedded["wp:featuredmedia"][0].alt_text}"/>
+                                    </a>
                                     <div class="post-details">
                                         <H2>${results[i].title.rendered}</H2>
                                         <p>${results[i].excerpt.rendered}</p>

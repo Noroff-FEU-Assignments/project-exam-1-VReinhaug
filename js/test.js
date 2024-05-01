@@ -1,7 +1,10 @@
+import { imageClick } from "./functions/img-click.js";
+
 document.addEventListener("DOMContentLoaded", function() {
     const queryString = document.location.search;
     const params = new URLSearchParams(queryString);
     const slug = params.get("post");
+
 
     const baseUrl = `https://www.veronika-codes.one/wp-json/wp/v2/posts?slug=${slug}&_embed`;
 
@@ -35,4 +38,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     getPost();
+    imageClick();
 });
