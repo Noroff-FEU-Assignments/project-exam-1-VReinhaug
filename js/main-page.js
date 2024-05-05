@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             console.log(post);
 
-            // Create carousel item
             const carouselItem = document.createElement("div");
             carouselItem.classList.add("carousel-item");
             carouselItem.innerHTML = `<a href="blog/post.html?post=${link}">
@@ -31,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function() {
             latestCarousel.appendChild(carouselItem);
         });
 
-        // Initialize carousel
         initializeCarousel(posts.length);
         createDots(posts.length);
         })
@@ -42,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         function initializeCarousel(numSlides) {
 
-        // Function to update carousel position
+        // Update carousel position
         function updateCarousel() {
             const itemWidth = latestCarousel.clientWidth / (window.innerWidth > 750 ? 2 : 1);
             const newPosition = -currentIndex * itemWidth;
@@ -60,19 +58,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Function to navigate to the next slide
         function goToNextSlide() {
-            if (currentIndex < numSlides - 2) {
-              currentIndex++;
-              updateCarousel();
-              updateDots();
+        // Right ammount of images based on screen size
+        const maxIndex = (window.innerWidth > 750) ? numSlides - 2 : numSlides - 1;
+            if (currentIndex < maxIndex) {
+             currentIndex++;
+             updateCarousel();
+             updateDots();
             }
         }
 
-        // Function to navigate to a specific slide
-        function goToSlide(index) {
-            if (index >= 0 && index < numSlides) {
-            currentIndex = index;
-            updateCarousel();
-            updateDots();
+        // Event listeners for swipe on touch screen
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        latestCarousel.addEventListener('touchstart', (event) => {
+            touchStartX = event.touches[0].clientX;
+        });
+
+        latestCarousel.addEventListener('touchend', (event) => {
+            touchEndX = event.changedTouches[0].clientX;
+            handleGesture();
+        });
+
+        function handleGesture() {
+            const difference = touchStartX - touchEndX;
+            if (Math.abs(difference) > 100) {
+                // Swipe left
+                if (difference > 0) {
+                    goToNextSlide();
+                }
+                // Swipe right
+                else {
+                    goToPrevSlide();
+                }
             }
         }
 
@@ -80,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function() {
         prevButton.addEventListener('click', goToPrevSlide);
         nextButton.addEventListener('click', goToNextSlide);
 
-        // Initialize carousel position
         updateCarousel();
         }
 
@@ -94,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
             updateDots();
         }
 
-        // Function to update dots' appearance
+        // Function to update the dots
         function updateDots() {
             const dots = dotContainer.querySelectorAll('.carousel-dot');
             dots.forEach((dot, index) => {

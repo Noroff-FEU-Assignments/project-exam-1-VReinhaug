@@ -34,7 +34,6 @@ body{
 H1, H2, H3{
     font-family: "Caveat", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #803436;
-    margin: 20px;
 }
 
 H1{
@@ -50,13 +49,14 @@ H3{
     font-size: 2em;
 }
 
-p{
-    margin: 1em 2em;
-}
-
 footer{
     background-color: #EBB749;
     text-align: center;
+}
+
+.text-page{
+    max-width: 1000px;
+    margin: auto;
 }
 
 /* Links and buttons */
@@ -73,6 +73,7 @@ a{
     border-radius: 30px;
     max-width: 100%;
     margin: 10px;
+    cursor: pointer;
 }
 
 .cta-button{
@@ -93,6 +94,7 @@ a{
 }
 
 .loader {
+    display: none;
     border: 15px solid #ffffff;
     border-top: 15px solid #EBB749;
     border-radius: 50%;
@@ -238,6 +240,43 @@ a{
     cursor: pointer;
 }
 
+/* Contact page */
+#contactForm{
+    text-align: center;
+    max-width: 1000px;
+    margin:0px 10px;
+}
+
+.form-input {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+  
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: solid 1px #65BFAF;
+}
+  
+textarea {
+    resize: vertical;
+}
+
+.form-error{
+    color: #803436;
+    font-weight: bold;
+}
+
+#confirmation{
+    font-size: larger;
+}
 
 /* Screens smaller than 750px */
 @media (max-width: 750px) {  
@@ -255,8 +294,8 @@ a{
     }
       
     .carousel-dot{
-        height: 30px;
-        width: 30px;
+        height: 20px;
+        width: 20px;
         margin: 0 2px;
         background-color: #EBB749;
         border: 2px solid #65BFAF;
@@ -293,6 +332,12 @@ a{
 
     H1, H2, H3{
         max-width: 90vw;
+        margin: 0.5em auto;
+    }
+
+    p{
+        max-width: 90%;
+        margin: auto;
     }
   }
 
