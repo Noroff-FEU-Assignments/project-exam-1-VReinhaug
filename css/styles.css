@@ -113,7 +113,8 @@ a{
 .latest-container {
     position: relative;
     overflow: hidden;
-    max-width: 100%;
+    max-width: 1000px;
+    margin: auto;
   }
   
   .latest-carousel {
@@ -137,7 +138,7 @@ a{
   .carousel-prev,
   .carousel-next {
     position: absolute;
-    top: 40%;
+    top: 50%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
@@ -267,6 +268,7 @@ textarea {
   
 textarea {
     resize: vertical;
+    font-family: "Mukta vaani", Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .form-error{
