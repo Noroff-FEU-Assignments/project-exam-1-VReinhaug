@@ -15,10 +15,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         const response = await fetch(baseUrl);
         const postDetails = await response.json();
 
-        if (!postDetails || postDetails.length === 0) {
-            throw new Error("Post not found");
-        }
-
         const postHtml = `
             <div class="post-image">
                 <img class="post-image" src="${postDetails[0]._embedded["wp:featuredmedia"][0].source_url}" alt="${postDetails[0]._embedded["wp:featuredmedia"][0].alt_text}">
@@ -27,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             <div class="content">${postDetails[0].content.rendered}</div>
         `;
 
-        // Change the title
+        // Change the page title
         document.title = "My travel blog | " + postDetails[0]._embedded["wp:term"][1][0].name;
 
         postContainer.innerHTML = postHtml;
@@ -63,7 +59,8 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     } catch (error) {
         postContainer.innerHTML = message("error");
-    } finally {
+    } 
+    finally {
         // Hide loader after content is loaded
         loader.style.display = "none";
     }

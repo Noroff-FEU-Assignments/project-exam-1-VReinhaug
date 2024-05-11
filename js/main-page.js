@@ -3,8 +3,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const prevButton = document.querySelector(".carousel-prev");
     const nextButton = document.querySelector(".carousel-next");
     const dotContainer = document.querySelector(".carousel-dots");
+    const loader = document.querySelector(".loader");
 
     let currentIndex = 0;
+
+    loader.style.display = "block";
 
     fetch("https://www.veronika-codes.one/wp-json/wp/v2/posts?_embed&per_page=4")
         .then(response => response.json())
@@ -16,8 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const alt = post._embedded["wp:featuredmedia"][0].alt_text;
             const link = post.slug;
 
-            console.log(post);
-
             const carouselItem = document.createElement("div");
             carouselItem.classList.add("carousel-item");
             carouselItem.innerHTML = `<a href="blog/post.html?post=${link}">
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                     </a>`;
 
             latestCarousel.appendChild(carouselItem);
+            loader.style.display = "none";
         });
 
         initializeCarousel(posts.length);
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
 
         .catch(error => {
-            console.error('Error fetching posts:', error);
+            latestCarousel.innerHTML = message ("error");
         });
 
         function initializeCarousel(numSlides) {

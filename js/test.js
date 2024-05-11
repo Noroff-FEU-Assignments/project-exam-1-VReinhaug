@@ -19,6 +19,7 @@ async function getPosts() {
         }
         
         for (let i = 0; i < results.length; i++) {
+            console.log(results);
 
             const blogPost = document.createElement("section");
             blogPost.classList.add("blog-post");
@@ -33,7 +34,7 @@ async function getPosts() {
                                         </div>
                                     </div>`;
 
-            postContainer.appendChild(blogPost);
+            postContainer.appendChild(blogPost); // Append new blog post to the container
             
         }
 
