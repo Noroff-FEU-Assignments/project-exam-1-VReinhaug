@@ -95,20 +95,27 @@ a{
     content: "Oops, we lost some luggage along the way. Please try again or come back later.";
 }
 
-.loader {
+.loader{
     display: none;
-    border: 15px solid #ffffff;
-    border-top: 15px solid #EBB749;
-    border-radius: 50%;
-    width: 80px; 
-    height: 80px;
-    animation: spin 2s linear infinite;
-    margin: auto;
 }
 
-@keyframes spin {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+.fa-plane{
+    color: #65BFAF;
+    font-size: 3em;
+    margin-top: 5%;
+    margin-left: 5%;
+    animation-name: plane;
+    animation-duration: 5s;
+}
+
+@keyframes plane {
+    from{
+        font-size: 3em;
+    }
+    to{
+        font-size: 6em;
+        transform: rotate(-10deg) translateX(500px);
+    }
 }
 
 /* Carousel with latest posts */
@@ -190,6 +197,10 @@ a{
 
 .featured-image img{
     max-width: 45vw;
+}
+
+#loadMoreButton{
+    display: none;
 }
 
 /* Blog specific page */
